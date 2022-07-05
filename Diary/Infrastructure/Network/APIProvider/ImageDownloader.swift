@@ -9,7 +9,7 @@ import UIKit
 
 final class ImageDownloader {
     private let service = APIProvider()
-    private let imageCacheManager = ImageCacheManager()
+    private let imageCacheManager = ImageCacheManager.shared
     private var task: URLSessionDataTask?
     
     func cancelTask() {

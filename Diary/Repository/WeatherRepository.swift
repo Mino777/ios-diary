@@ -16,13 +16,9 @@ final class WeatherRepository {
         completion: @escaping (Result<Weather?, NetworkError>) -> Void
     ) {
         service.request(endpoint: endpoint) { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            
             switch result {
             case .success(let result):
-                completion(.success(self.decode(data: result)))
+                completion(.success(self?.decode(data: result)))
             case .failure(let error):
                 completion(.failure(error))
             }

@@ -8,7 +8,10 @@
 import UIKit
 
 final class ImageCacheManager {
+    static let shared = ImageCacheManager()
     private let cache = NSCache<NSString, UIImage>()
+    
+    private init() {}
     
     func set(object: UIImage, forKey key: String) {
         cache.setObject(object, forKey: key as NSString)
